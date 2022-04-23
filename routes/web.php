@@ -16,11 +16,11 @@ use Illuminate\Support\Facades\Route;
 //    return view('welcome');
 //});
 
-Route::get('/', [App\Contacts\Controllers\Web\ContactController::class, 'list'])
-    ->name('contacts.list');
-
-Route::get('contacts/{contact}', [App\Contacts\Controllers\Web\ContactController::class, 'view'])
-    ->name('contacts.view');
+//Route::get('/', [App\Contacts\Controllers\Web\ContactController::class, 'list'])
+//    ->name('contacts.list');
+//
+//Route::get('contacts/{contact}', [App\Contacts\Controllers\Web\ContactController::class, 'view'])
+//    ->name('contacts.view');
 
 Auth::routes();
 

@@ -28,15 +28,16 @@ class ContactController extends Controller
         $contact->contact = $data['contact'];
         $contact->email = $data['email'];
 
-//        if ($this->handleEmail($data['email'])) {
-//            $contact = [
-//                'name' => $data['name'],
-//                'contact' => $data['contact'],
-//                'email' => $data['email'],
-//                'error' => "This email already exists. Try again, please.",
-//            ];
-//            return view('contacts.store', compact('contact'));
-//        }
+        if ($this->handleEmail($data['email'])) {
+            $contact = [
+                'name' => $data['name'],
+                'contact' => $data['contact'],
+                'email' => $data['email'],
+                'error' => "This email already exists. Try again, please.",
+            ];
+            (object)$contact;
+            return view('contacts.store', compact('contact'));
+        }
 
         $contact->save();
         return $this->index();
