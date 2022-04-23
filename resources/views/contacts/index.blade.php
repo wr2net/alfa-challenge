@@ -24,7 +24,7 @@
                 @forelse($contacts ?? '' as $contact)
                     <tr>
                         <td class="text-center">{{$contact->id}}</td>
-                        <td class="text-left"><a href="{{route('web.contacts.show', $contact->id)}}">{{$contact->name}}</a></td>
+                        <td class="text-left"><a href="{{route('web.contacts.view', $contact->id)}}">{{$contact->name}}</a></td>
                         <td class="text-center">{{$contact->contact}}</td>
                         <td class="text-left">{{$contact->email}}</td>
                         <td class="text-center">

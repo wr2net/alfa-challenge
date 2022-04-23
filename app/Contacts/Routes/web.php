@@ -20,3 +20,9 @@ Route::put('contacts/{contact}', 'ContactController@update')
 
 Route::get('contacts/delete/{contact}', 'ContactController@destroy')
     ->name('contacts.delete');
+
+Route::get('/', [App\Contacts\Controllers\Web\ContactController::class, 'list'])
+    ->name('contacts.list');
+
+Route::get('contacts/{contact}', [App\Contacts\Controllers\Web\ContactController::class, 'view'])
+    ->name('contacts.view');
