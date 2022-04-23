@@ -10,7 +10,7 @@ class ContactController extends Controller
 {
     public function index()
     {
-        $contacts = Contact::all();
+        $contacts = Contact::All();
         return view('contacts.index', compact('contacts'));
     }
 
@@ -28,7 +28,7 @@ class ContactController extends Controller
         $contact->contact = $data['contact'];
         $contact->email = $data['email'];
 
-        if ($this->handleEmail($data['email'])) {
+        if (!$this->handleEmail($data['email'])) {
             $contact = [
                 'name' => $data['name'],
                 'contact' => $data['contact'],
@@ -74,8 +74,11 @@ class ContactController extends Controller
 
     private function handleEmail($email)
     {
-        $contact = Contact::where('email', $email);
-        return view('contacts.show', compact('contact'));
+        $contact = Contact::where('email', $email)->first();
+        if ($contact) {
+            return false;
+        }
+        return true;
     }
 
     public function list()
