@@ -14,7 +14,7 @@
         </div>
     </div>
     <div class="row">
-        <div class="col-md-9">
+        <div class="col-md-12">
             <form action="{{route('web.contacts.update', $contact->id)}}" enctype="multipart/form-data" method='post' class="form-horizontal">
                 {{csrf_field()}}
                 {{method_field('PUT')}}
